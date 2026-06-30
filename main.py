@@ -1,17 +1,34 @@
 from src.parser import Parser
 
 
+def print_candidate(candidate):
+
+    print("Candidate ID :", candidate.candidate_id)
+    print("Name         :", candidate.full_name)
+    print("Emails       :", candidate.emails)
+    print("Phones       :", candidate.phones)
+    print("Headline     :", candidate.headline)
+    print("Skills       :", candidate.skills)
+    print("Location     :", candidate.location)
+    print("-" * 50)
+
+
 def main():
+
     parser = Parser()
 
-    recruiter_data = parser.read_csv("input/recruiter.csv")
-    github_data = parser.read_github_json("input/github.json")
+    csv_candidates = parser.read_csv("input/recruiter.csv")
+    github_candidates = parser.read_github_json("input/github.json")
 
-    print("===== Recruiter CSV =====")
-    print(recruiter_data)
+    print("\n========== CSV ==========\n")
 
-    print("\n===== GitHub JSON =====")
-    print(github_data)
+    for candidate in csv_candidates:
+        print_candidate(candidate)
+
+    print("\n========== GitHub ==========\n")
+
+    for candidate in github_candidates:
+        print_candidate(candidate)
 
 
 if __name__ == "__main__":
