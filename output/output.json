@@ -1,0 +1,30 @@
+{
+    "candidate_id": "1",
+    "full_name": "Siripurapu Karthik",
+    "emails": [
+        "karthik@gmail.com"
+    ],
+    "phones": [
+        "+919876543210"
+    ],
+    "location": {
+        "city": null,
+        "region": null,
+        "country": "India"
+    },
+    "headline": "Student",
+    "skills": [
+        "Python",
+        "C++",
+        "JavaScript"
+    ],
+    "experience": [],
+    "education": [],
+    "links": {
+        "github": null,
+        "linkedin": null,
+        "portfolio": null,
+        "other": []
+    },
+    "overall_confidence": 1.0
+}

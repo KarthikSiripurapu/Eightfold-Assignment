@@ -1,6 +1,8 @@
 from src.parser import Parser
 from src.merger import Merger
 from src.confidence import Confidence
+from src.projector import Projector
+from src.validator import Validator
 
 
 def print_candidate(candidate):
@@ -21,6 +23,8 @@ def main():
     parser = Parser()
     merger = Merger()
     confidence = Confidence()
+    validator = Validator()
+    projector = Projector()
 
     csv_candidates = parser.read_csv("input/recruiter.csv")
     github_candidates = parser.read_github_json("input/github.json")
@@ -32,7 +36,22 @@ def main():
 
     merged_candidate = confidence.calculate(merged_candidate)
 
+    errors = validator.validate(merged_candidate)
+
+    if errors:
+        print("Validation Errors:")
+        for error in errors:
+            print("-", error)
+        return
+
+    projector.save(
+        merged_candidate,
+        "output/output.json"
+    )
+
     print_candidate(merged_candidate)
+
+    print("\nOutput saved to output/output.json")
 
 
 if __name__ == "__main__":
