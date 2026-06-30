@@ -1,4 +1,5 @@
 from src.parser import Parser
+from src.merger import Merger
 
 
 def print_candidate(candidate):
@@ -16,19 +17,20 @@ def print_candidate(candidate):
 def main():
 
     parser = Parser()
+    merger = Merger()
 
+    # Read input files
     csv_candidates = parser.read_csv("input/recruiter.csv")
     github_candidates = parser.read_github_json("input/github.json")
 
-    print("\n========== CSV ==========\n")
+    # Merge the first CSV candidate with the first GitHub profile
+    merged_candidate = merger.merge(
+        csv_candidates[0],
+        github_candidates[0]
+    )
 
-    for candidate in csv_candidates:
-        print_candidate(candidate)
-
-    print("\n========== GitHub ==========\n")
-
-    for candidate in github_candidates:
-        print_candidate(candidate)
+    print("\n========== MERGED CANDIDATE ==========\n")
+    print_candidate(merged_candidate)
 
 
 if __name__ == "__main__":
