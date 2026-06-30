@@ -2,43 +2,63 @@
 
 ## Overview
 
-Transforms structured and unstructured candidate data into one canonical candidate profile.
+This project transforms structured and unstructured candidate data from multiple sources into a single canonical candidate profile.
+
+---
 
 ## Features
 
-- Parse CSV recruiter data
+- Parse recruiter CSV data
 - Parse GitHub JSON profile
 - Merge candidate information
-- Normalize phones
-- Normalize skills
-- Calculate confidence score
-- Generate JSON output
+- Normalize phone numbers
+- Normalize skill names
+- Calculate candidate confidence score
+- Generate unified JSON output
+
+---
 
 ## Project Structure
 
+```
 config/
 docs/
 input/
 output/
 src/
 tests/
-
 main.py
+```
+
+---
 
 ## Requirements
 
-Python 3.10+
+- Python 3.10+
+- pandas
 
-pandas
+---
 
-## Install
+## Installation
 
+```bash
 pip install -r requirements.txt
+```
+
+---
 
 ## Run
 
+```bash
 python main.py
+```
 
-Output is saved in
+---
 
+## Output
+
+The generated candidate profile is saved to:
+
+```
 output/output.json
+```
